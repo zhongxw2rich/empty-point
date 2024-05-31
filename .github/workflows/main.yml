@@ -1,0 +1,15 @@
+name: deploy empty-point
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps: 
+    - run: cd next-js-app
+    - run: echo "GITHUB_CLIENT_ID=${{ secrets.EMPTY_POINT_GITHUB_CLIENT_ID }}"
+    
+    
+    
+      
+      
