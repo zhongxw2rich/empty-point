@@ -29,6 +29,6 @@ jobs:
         REMOTE_USER: deploy
         SOURCE: 'empty-point'
         TARGET: 'empty-point'
-        ARGS: "-rlgoDzvc -i --delete"
+        ARGS: "-rlzvc -i --delete"
         EXCLUDE: "/dist/, /node_modules/"
         
