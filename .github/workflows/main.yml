@@ -24,8 +24,8 @@ jobs:
       uses: appleboy/scp-action@v0.0.1
       with:
         host: ${{ secrets.EMPTY_POINT_REMOTE_HOST }}
-        key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
-        username: deploy
+        username: ${{EMPTY_POINT_REMOTE_USN}}
+        password: ${{EMPTY_POINT_REMOTE_PWD}}
         source: '.'
         target: '/home/deploy/empty-point/'
         args: '-r'
