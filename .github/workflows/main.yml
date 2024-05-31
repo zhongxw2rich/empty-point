@@ -13,8 +13,9 @@ jobs:
       uses: actions/setup-node@v4
       with: 
         node-version: 18.x
-    
-    - run: |
+
+    - name: build project
+      run: |
         cd next-js-app
         echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
         npm install
@@ -28,5 +29,6 @@ jobs:
         REMOTE_USER: deploy
         SOURCE: 'empty-point'
         TARGET: 'empty-point'
-        ARGS: "-avzr --delete"
+        ARGS: "-rlgoDzvc -i --delete"
+        EXCLUDE: "/dist/, /node_modules/"
         
