@@ -23,11 +23,11 @@ jobs:
     - name: scp project
       uses: appleboy/scp-action@v0.0.1
       with:
-        host: ${{ secrets.EMPTY_POINT_REMOTE_HOST }}
+        host: ${{ env.EMPTY_POINT_REMOTE_HOST }}
         username: deploy
         key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
         source: '.'
-        target: '/home/deploy/frontend/'
+        target: '/home/deploy/empty-point/'
         args: '-r'
         
     
