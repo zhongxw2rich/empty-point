@@ -22,7 +22,7 @@ jobs:
 
     - run: |
         mkdir .ssh
-        ehco "${{ secrets.EMPTY_POINT_REMOTE_KEY }}" > .ssh/id_rsa
+        echo "${{ secrets.EMPTY_POINT_REMOTE_KEY }}" > .ssh/id_rsa
 
     - name: ssh deploy
       uses: easingthemes/ssh-deploy@main
