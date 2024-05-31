@@ -6,26 +6,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest 
     steps: 
-    - name: checkout
-      uses: actions/checkout@v4
+    #- name: checkout
+    #  uses: actions/checkout@v4
       
-    - name: install nodejs
-      uses: actions/setup-node@v4
-      with: 
-        node-version: 18.x
+    #- name: install nodejs
+    #  uses: actions/setup-node@v4
+    #  with: 
+    #    node-version: 18.x
     
-    - run: |
-        cd next-js-app
-        echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
-        npm install
-        npm run build
+    #- run: |
+    #    cd next-js-app
+    #    echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
+    #    npm install
+    #    npm run build
 
-    - name: scp project
-      uses: appleboy/scp-action@v0.0.1
-      with:
-        host: ${{ secrets.EMPTY_POINT_REMOTE_HOST }}
-        username: ${{ secrets.EMPTY_POINT_REMOTE_USN }}
-        password: ${{ secrets.EMPTY_POINT_REMOTE_PWD }}
-        source: '.'
-        target: '/home/deploy/empty-point/'
-        args: '-r'
+    - run: |
+        echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
+        cat .env
