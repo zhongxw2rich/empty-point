@@ -21,15 +21,14 @@ jobs:
         npm install
         npm run build
 
-    - run: pwd
-
     - name: deploy project
-      uses: easingthemes/ssh-deploy@main
+      uses: appleboy/scp-action@master
+      env:
+        PORT: 22
+        USERNAME: deploy
+        HOST: ${{ vars.EMPTY_POINT_REMOTE_HOST }}
+        KEY: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
       with:
-          SSH_PRIVATE_KEY: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "./*"
-          REMOTE_HOST: ${{ vars.EMPTY_POINT_REMOTE_HOST }}
-          REMOTE_USER: deploy
-          TARGET: "./"
-          EXCLUDE: "/dist/, /node_modules/"
+        source: "."
+        target: "empty-point/"
+        rm: true
