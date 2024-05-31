@@ -21,13 +21,9 @@ jobs:
         npm install
         npm run build
 
-    - name: scp deploy
-      uses: appleboy/scp-action@v0.1.7
-      with:
-        host: ${{ vars.EMPTY_POINT_REMOTE_HOST }}
-        key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
-        username: deploy
-        source: 'empty-point'
-        target: 'empty-point'
-        rm: true
+    - name: deploy project
+      run: |
+        (mkdir .ssh) && (echo "${{ secrets.EMPTY_POINT_REMOTE_KEY }}" > .ssh/id_rsa) && (chmod 600 .ssh/id_rsa)
+        ssh deploy@${{ vars.EMPTY_POINT_REMOTE_HOST }} 'rm -rf empty-point'
+        scp empty-point deploy@${{ vars.EMPTY_POINT_REMOTE_HOST }}:empty-point
         
