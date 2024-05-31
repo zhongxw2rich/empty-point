@@ -29,8 +29,7 @@ jobs:
       with:
         REMOTE_HOST: ${{ vars.EMPTY_POINT_REMOTE_HOST }}
         REMOTE_USER: deploy
-        SCRIPT_BEFORE: |
-          rm -rf empty-point
         SOURCE: 'empty-point'
         TARGET: 'empty-point'
+        ARGS: "-avzr --delete"
         
