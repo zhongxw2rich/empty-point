@@ -21,14 +21,13 @@ jobs:
         npm install
         npm run build
 
-    - name: ssh deploy
-      uses: easingthemes/ssh-deploy@main
+    - name: scp deploy
+      uses: appleboy/scp-action@v0.1.7
       with:
-        SSH_PRIVATE_KEY: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
-        REMOTE_HOST: ${{ vars.EMPTY_POINT_REMOTE_HOST }}
-        REMOTE_USER: deploy
-        SOURCE: 'empty-point'
-        TARGET: 'empty-point'
-        ARGS: "-rlzvc -i --delete"
-        EXCLUDE: "/dist/, /node_modules/"
+        host: ${{ vars.EMPTY_POINT_REMOTE_HOST }}
+        key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
+        username: deploy
+        source: 'empty-point'
+        target: 'empty-point'
+        rm: true
         
