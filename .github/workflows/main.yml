@@ -21,5 +21,4 @@ jobs:
     #    npm run build
 
     - run: |
-        echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
-        cat .env
+        echo "${{ vars.EMPTY_POINT_REMOTE_HOST }}"
