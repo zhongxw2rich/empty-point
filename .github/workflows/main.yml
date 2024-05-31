@@ -16,7 +16,7 @@ jobs:
     
     - run: |
         cd next-js-app
-        echo "=${{ secrets.EMPTY_POINT_ENV }}" > .env
+        echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
         npm install
         npm run build
 
