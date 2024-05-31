@@ -23,7 +23,7 @@ jobs:
     - name: scp project
       uses: appleboy/scp-action@v0.0.1
       with:
-        host: ${{ env.EMPTY_POINT_REMOTE_HOST }}
+        host: ${{ envs.EMPTY_POINT_REMOTE_HOST }}
         username: deploy
         key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
         source: '.'
