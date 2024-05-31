@@ -14,10 +14,11 @@ jobs:
       with: 
         node-version: 18.x
     
-    - run: cd next-js-app
-    - run: echo "=${{ secrets.EMPTY_POINT_ENV }}" > .env
-    - run: npm install
-    - run: npm run build
+    - run: |
+        cd next-js-app
+        echo "=${{ secrets.EMPTY_POINT_ENV }}" > .env
+        npm install
+        npm run build
 
     - name: scp project
       uses: appleboy/scp-action@v0.0.1
