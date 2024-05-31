@@ -20,13 +20,10 @@ jobs:
         npm install
         npm run build
 
-    - run: |
-        mkdir .ssh
-        echo "${{ secrets.EMPTY_POINT_REMOTE_KEY }}" > .ssh/id_rsa
-
     - name: ssh deploy
       uses: easingthemes/ssh-deploy@main
       with:
+        SSH_PRIVATE_KEY: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
         REMOTE_HOST: ${{ vars.EMPTY_POINT_REMOTE_HOST }}
         REMOTE_USER: deploy
         SOURCE: 'empty-point'
