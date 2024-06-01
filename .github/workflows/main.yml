@@ -26,7 +26,7 @@ jobs:
       with:
         username: 'deploy'
         server: '${{ vars.EMPTY_POINT_REMOTE_HOST }}'
-        ssh_private_key:  ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
+        ssh_private_key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
         local_path: './*'
         remote_path: '/home/deploy/empty-point'
         sftpArgs: ''
