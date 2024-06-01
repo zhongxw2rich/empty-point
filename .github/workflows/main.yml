@@ -30,4 +30,15 @@ jobs:
         key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
         source: './*'
         target: '/home/deploy/empty-point'
+        rm: true
+
+    - name: restart project
+      uses: appleboy/ssh-action@master
+      with:
+        username: 'deploy'
+        host: '${{ vars.EMPTY_POINT_REMOTE_HOST }}'
+        key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
+        script: |
+          cd /home/deploy/empty-point/next-js-app
+          pm2 stop "empty-point" || pm2 start npm --name "empty-point" -- start
         
