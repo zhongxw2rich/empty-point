@@ -19,7 +19,6 @@ jobs:
         cd next-js-app
         echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
         npm install
-        npx prisma migrate deploy
         npm run build
 
     - name: deploy project
@@ -40,5 +39,6 @@ jobs:
         key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
         script: |
           cd /home/deploy/empty-point/next-js-app
+          npx prisma migrate deploy
           pm2 stop "empty-point"; pm2 delete "empty-point"; pm2 start npm --name "empty-point" -- start
           
