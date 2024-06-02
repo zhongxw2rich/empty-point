@@ -2,11 +2,20 @@ import { EmptyPointUser, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function create(createData: {name:string, email: string}): Promise<boolean> {
+export async function add(createData: {name:string, email: string}): Promise<boolean> {
     const user = await prisma.emptyPointUser.create({
         data: {
             name: createData.name,
             email: createData.email
+        }
+    });
+    return !!user;
+}
+
+export async function del(deleteEmail: string): Promise<boolean> {
+    const user = await prisma.emptyPointUser.delete({
+        where: {
+            email: deleteEmail
         }
     });
     return !!user;
@@ -24,7 +33,7 @@ export async function raise(updateEmail: string): Promise<boolean> {
     return !!user;
 }
 
-export async function find(queryEmail: string): Promise<{name: any, email: any, role: any} | null> {
+export async function find(queryEmail: string): Promise<{name: any, email: any, role: any, createdAt: Date, updatedAt: Date} | null> {
     return await prisma.emptyPointUser.findUnique({
         where: {
             email: queryEmail,
@@ -32,10 +41,13 @@ export async function find(queryEmail: string): Promise<{name: any, email: any, 
         select: {
             name: true,
             email: true,
-            role: true
+            role: true,
+            createdAt: true,
+            updatedAt: true
         }
     });
 }
+
 
 export async function list(): Promise<EmptyPointUser[]> {
     return await prisma.emptyPointUser.findMany();

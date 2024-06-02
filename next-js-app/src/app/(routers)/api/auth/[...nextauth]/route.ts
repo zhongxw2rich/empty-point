@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
-import { create,find } from "@/serverConponents/EmptyPointUser";
+import { add,find } from "@/serverConponents/EmptyPointUser";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -19,7 +19,7 @@ const authOptions: NextAuthOptions = {
       if (typeof user.email === 'string') {
         const existUser = await find(user.email);
         if (!existUser) {
-          await create({
+          await add({
             name: user.name ? user.name : '',
             email: user.email
           });

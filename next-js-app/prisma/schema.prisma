@@ -12,6 +12,8 @@ model EmptyPointUser {
   email String  @unique
   name  String?
   role  String? @default("USER")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // Role: USER/ADMIN
