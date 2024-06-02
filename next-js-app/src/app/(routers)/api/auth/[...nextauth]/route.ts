@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
+import { add,find } from "@/serverConponents/EmptyPointUser";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -15,7 +16,14 @@ const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET as string,
   callbacks: {
     signIn: async ({ user }) => {
-      if (user.email === 'zhongxw2024@gmail.com') {
+      if (typeof user.email === 'string') {
+        const existUser = await find(user.email);
+        if (!existUser) {
+          await add({
+            name: user.name ? user.name : '',
+            email: user.email
+          });
+        }
         return true;
       }
       return '/unauthorized';

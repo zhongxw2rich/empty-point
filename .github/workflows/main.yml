@@ -19,6 +19,7 @@ jobs:
         cd next-js-app
         echo "${{ secrets.EMPTY_POINT_ENV }}" > .env
         npm install
+        npx prisma migrate deploy
         npm run build
 
     - name: deploy project
