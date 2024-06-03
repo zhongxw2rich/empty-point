@@ -20,7 +20,7 @@ const authOptions: NextAuthOptions = {
         const existUser = await find(user.email);
         if (!existUser) {
           await add({
-            name: user.name ? user.name : '',
+            name: user.name,
             email: user.email
           });
         }

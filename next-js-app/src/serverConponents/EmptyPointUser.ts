@@ -2,7 +2,7 @@ import { EmptyPointUser, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function add(createData: {name:string, email: string}): Promise<boolean> {
+export async function add(createData: {name:any, email: string}): Promise<boolean> {
     const user = await prisma.emptyPointUser.create({
         data: {
             name: createData.name,
