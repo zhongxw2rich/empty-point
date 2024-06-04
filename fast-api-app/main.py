@@ -9,4 +9,4 @@ async def hello():
 
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', log_level="warn")
+    uvicorn.run('main:app')
