@@ -10,4 +10,4 @@ npm install
 npx prisma generate
 npx prisma migrate deploy
 npm run build
-pm2 stop "empty-point"; pm2 delete "empty-point"; pm2 start npm --name "empty-point" -- start
+pm2 stop "next-js-app"; pm2 delete "next-js-app"; pm2 start npm --name "next-js-app" -- start
