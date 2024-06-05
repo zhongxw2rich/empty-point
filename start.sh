@@ -1,9 +1,9 @@
 cd /home/deploy/empty-point/fast-api-app
-python -m venv ./
+python3 -m venv .
 source bin/active
 pip install -r requirements.txt
 pm2 stop "fast-api-app"; pm2 delete "fast-api-app"; pm2 start main.py --name "fast-api-app"
-deactive
+deactivate
 
 cd /home/deploy/empty-point/next-js-app
 npm install
