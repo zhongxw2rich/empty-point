@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd /home/deploy/empty-point/fast-api-app
 python3 -m venv .
 source bin/activate
