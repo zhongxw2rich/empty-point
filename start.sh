@@ -1,6 +1,6 @@
 cd /home/deploy/empty-point/fast-api-app
 python3 -m venv .
-source bin/active
+source bin/activate
 pip install -r requirements.txt
 pm2 stop "fast-api-app"; pm2 delete "fast-api-app"; pm2 start main.py --name "fast-api-app"
 deactivate
