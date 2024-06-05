@@ -35,5 +35,4 @@ jobs:
         username: 'deploy'
         host: '${{ vars.EMPTY_POINT_REMOTE_HOST }}'
         key: ${{ secrets.EMPTY_POINT_REMOTE_KEY }}
-        script: "sh /home/deploy/empty-point/start.sh"
-          
+        script: "bash /home/deploy/empty-point/start.sh"
