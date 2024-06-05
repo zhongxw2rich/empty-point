@@ -1,7 +1,7 @@
-import axios from "axios";
+import http from "@/lib/http";
 
 export default function Home() {
-  const hello = axios.get('http://localhost:3000/api/fast-api-app/hello')
+  const hello = http.get('/api/fast-api-app/hello')
     .then(response => JSON.stringify(response.data))
     .catch( error => {
         console.log(error)
