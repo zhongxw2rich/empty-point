@@ -32,10 +32,16 @@ body {
   }
 }
 
-.mr-16{
-  margin-right: 16px;
+.left-empty {
+  width: 20%;
+  float: left;
+}
+.right-empty {
+  width: 20%;
+  float: right;
 }
 
-.ml-auto{
-  margin-left: auto;
+.navbar {
+  width: 400px;
+  margin: 0 auto;
 }

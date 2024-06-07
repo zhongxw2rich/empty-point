@@ -4,7 +4,9 @@ import "./globals.css";
 import NavigationBar from "@/components/NavigationBar";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter(
+  { subsets: ["greek"] }
+);
 
 
 export const metadata: Metadata = {
@@ -15,12 +17,13 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      </head>
       <body className={inter.className}>
-      <NextAuthProvider>
-          <div className="lg:max-w-[900px] lg:px-16 mx-auto py-8 shadow-xl min-h-screen flex flex-col px-8">
-            <NavigationBar />
-            <main className="flex-auto">{children}</main>
-          </div>
+        <NextAuthProvider>
+          <main className="flex-auto">{children}</main>
         </NextAuthProvider>
       </body>
     </html>
