@@ -20,7 +20,7 @@ export default function NavigationBar() {
         <button className="" onClick={() => signOut({ callbackUrl: "/sign-in" })}>Sign Out</button>
       </nav>
     ) : (
-      <nav className="bg-zinc-200 dark:bg-opacity-50 light:bg-opacity-50 text-black p-4 flex justify-between items-center">
+      <nav className="bg-zinc-100 dark:bg-opacity-50 light:bg-opacity-50 text-black p-4 flex justify-between items-center">
         <div className="text-xl font-bold">Logo</div>
         <div className="flex space-x-4 navbar">
             <div className=""><Link className="btn" href={"/"}>Home</Link></div>
