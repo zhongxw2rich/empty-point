@@ -32,16 +32,20 @@ body {
   }
 }
 
-.left-empty {
-  width: 20%;
-  float: left;
-}
-.right-empty {
-  width: 20%;
-  float: right;
+.navbar {
+  width: 300px;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
-.navbar {
-  width: 400px;
-  margin: 0 auto;
+.bottom {
+  text-align: center;
+  height: 15vh;
+}
+
+.resverved {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
