@@ -1,7 +1,7 @@
 # empty-point
 a next js project
 
-## 2.机密以及变量存储Github
+## 机密以及变量存储Github
 
 ```shell
 Settings >> Secrets and variables >> Repository secrets >> EMPTY_POINT_ENV
